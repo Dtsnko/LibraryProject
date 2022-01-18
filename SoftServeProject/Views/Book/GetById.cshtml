@@ -1,0 +1,7 @@
+﻿@model Book
+
+Book title is @Model.Title
+Book authors are @foreach(var c in Model.Authors)
+            {
+                @c.Name @c.Surname <br />
+            }

@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Book>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Library</h1>
+</div>
+<h2>Book catalogue</h2>
+@foreach (var c in Model)
+{
+<h4>
+    <a asp-area="" asp-controller="Book" asp-action="GetById" asp-route-id="@c.Bookid">@c.Title </a>
+</h4> 
+    <br />
+    
+}
+<a asp-area="" asp-controller="Book" asp-action="GetMostPopularBook" asp-route-start="@DateTime.MinValue" asp-route-end="@DateTime.Now">All time popular book</a>
+<a asp-area="" asp-controller="ReaderStatistic" asp-action="GetAllReadersStatistics">All readers statistics</a>
+<a asp-area="" asp-controller="Read" asp-action="ApproveRequest" asp-route-id="5"></a>
